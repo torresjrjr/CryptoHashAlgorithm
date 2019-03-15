@@ -77,9 +77,9 @@ def hashcodeGrid4x4x4(hashcodestring=None, lineNum=4, columnNum=4, blockNum=4, g
 		columnNum          int; number of columbs in the grid. Default = 4 . Note: doesn't do anything rn.
 		blockNum           int; number of digits in a block. Default = 4 .
 	ACTIONS:
-		prints a hashcode grid:
+		prints a hashcode grid. Example:
 		
-			+---- ---- ---- ----+     example.
+			+---- ---- ---- ----+
 			 0123 4567 89AB CDEF 
 			 0123 4567 89AB CDEF 
 			 0123 4567 89AB CDEF 
@@ -157,7 +157,7 @@ def mealMerger(mealIn1, mealIn2):
 		i1+=1
 	return mealOut
 
-#8#
+#8# ----- Main Cryptographic Hash Algorithm python function. Edit here ----- #
 def hashFunctionNom(mealIn, nomIndexes):
 	'''
 	"Nibbles" a meal once; takes three specific elements of 
@@ -207,7 +207,7 @@ def hashFunctionNom(mealIn, nomIndexes):
 #9#
 def hashFunctionMunch(mealIn):
 	'''
-	"Nibbles" a through a full meal once; Repeats hashFunctionNom() over the entire meal, 
+	"Nibbles" a through a full meal once, like a "munch" ; Repeats hashFunctionNom() over the entire meal, 
 	from the beginning element, one cycle over, to a near last element.
 	INPUTS:
 		mealIn     list; of ints.
@@ -226,6 +226,15 @@ def hashFunctionMunch(mealIn):
 
 #10#
 def hashFunctionChew(mealIn, numOfChews = None):
+	'''
+	"Chews" through a meal, one chew equivilant to a "munch"; Repeats the hashFunctionMunch()
+	over a meal.
+	INPUTS:
+		mealIn         list; of ints.
+		numOfChews     int;
+	OUTPUTS:
+		digest         list; of ints.
+	'''
 	if numOfChews == None: numOfChews = 64
 	i1 = 1
 	#print("\n hashFunctionChew executed, with numOfRuns =",numOfChews,"\n")
@@ -243,14 +252,23 @@ def hashFunctionChew(mealIn, numOfChews = None):
 
 #11#
 def mealPadder(mealIn):
+	'''
+	Extends a "meal" list, with a filler int value, to a length of a multiple of 64.
+	INPUTS:
+		mealIn     list; of ints.
+	OUTPUTS:
+		mealPadded     list; of ints.
+		lengthSoup     int; length of input mealIn.
+		numOfChunks     int; for the main function.
+	'''
 	soup = list(mealIn)
 	lengthSoup = len(soup)
 	numOfChunks = int( (lengthSoup-1)/64 ) + 2
 	
 	lengthPadded = numOfChunks * 64
 	
-	paddedFillerNumber = 3
-	mealPadded = [paddedFillerNumber]*lengthPadded
+	paddedFillerInt = 3
+	mealPadded = [paddedFillerInt]*lengthPadded
 	
 	for i1 in range(0, lengthSoup):
 		mealPadded[i1] = soup[i1]
@@ -259,6 +277,15 @@ def mealPadder(mealIn):
 
 #12#
 def mealSalter(mealPaddedIn, lengthSoup):
+	'''
+	"Salts" the padded meal; changes the appended part of the padded meal list to 
+	a new list of psuedorandom ints, influenced by the length of the original meal.
+	INPUTS:
+		mealPaddedIn     list; of ints.
+		lengthSoup       int;
+	OUTPUTS:
+		broth            list; of ints. The salted, padded meal.
+	'''
 	broth = list(mealPaddedIn)
 	
 	saltyList = [5]*64
@@ -278,6 +305,24 @@ def mealSalter(mealPaddedIn, lengthSoup):
 
 #13#
 def HashFunction_NOM256(mealIn, numOfChews=None):
+	'''
+	Executes intermediate code for a 128-bit cryptographic hash algorithm.
+	The function:
+	- Receives a meal (a list of ints, of any length).
+	- Outputs a digest (a list of ints ranging from 0 to 15, of length 64).
+	
+	The meal is supposed to be a list of ints, converted from a string of unicode 
+	characters. Other functions do this.
+	
+	The digest is designed to be converted to a 64 hexidecimal character string,
+	by another function, essentially a 128-bit code.
+	
+	INPUTS:
+		mealIn              list; of ints.
+		numOfChews=None     int; a parameter within the algorithm.
+	OUTPUTS:
+		digest              list; of 64 ints, from 0 to 15.
+	'''
 	thePhatMeal = list(mealIn)
 	thePhatMeal, lengthSoup, numOfChunks = mealPadder(thePhatMeal)
 	thePhatMeal = mealSalter(thePhatMeal, lengthSoup)
@@ -366,4 +411,5 @@ while True:
 	else:
 		print("Command not recognised")
 
+#15#
 print("::::: END program :::::")
