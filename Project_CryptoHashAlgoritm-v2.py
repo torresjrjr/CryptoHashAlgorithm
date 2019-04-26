@@ -318,6 +318,8 @@ sigmoid_value = sigmoid01(average_value_adj, 8, 16, 4)
 
 ### Presenting a hash ###
 
+HashcodeString = createHashcodeString(broth_list_int)
+
 x = broth_list_int
 
 fig = plt.figure(num=None, figsize=(10, 5), dpi=80, facecolor='w', edgecolor='b')
@@ -343,6 +345,8 @@ plt.grid(b=True, which='minor', axis='both', linestyle='-', color='g')
 plt.plot(broth_list_int, 'wo:')
 #plt.plot(broth_list_int, 'ko:')
 plt.plot(broth_list_int_sorted, 'r.-')
+
+plt.title(HashcodeString)
 
 print("'outhash.png' will be saved once figure is closed")
 plt.show()
