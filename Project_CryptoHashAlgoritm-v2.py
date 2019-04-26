@@ -64,8 +64,6 @@ def approximateTime(meal):
     time = len(meal)**1 * RATE
     return time
     
-approximateTime(meal)
-    
 ### Functions for preparing the data ###
 
 def prepareMealFromFile(filepath="meal.txt"):
