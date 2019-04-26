@@ -322,7 +322,7 @@ HashcodeString = createHashcodeString(broth_list_int)
 
 x = broth_list_int
 
-fig = plt.figure(num=None, figsize=(10, 5), dpi=256, facecolor='w', edgecolor='b')
+fig = plt.figure(num=None, figsize=(10, 5), dpi=128, facecolor='w', edgecolor='b')
 ax = fig.add_subplot(1, 1, 1) # nrows, ncols, index
 
 hint_max = 0.3
