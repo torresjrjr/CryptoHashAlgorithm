@@ -346,7 +346,7 @@ plt.plot(broth_list_int, 'wo:')
 #plt.plot(broth_list_int, 'ko:')
 plt.plot(broth_list_int_sorted, 'r.-')
 
-plt.title(HashcodeString)
+plt.title(HashcodeString, {'fontsize': 16}, fontfamily='consolas')
 
 print("'outhash.png' will be saved once figure is closed")
 plt.show()
@@ -363,7 +363,7 @@ print(HashcodeString)
 print("\n4x4x4 hash grid.:")
 hashcodeGrid4x4x4(HashcodeString)
 
-#~~~#
+### Verifying hash output validity ###
 
 def verifyHashcode(digest):
     list_str = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
