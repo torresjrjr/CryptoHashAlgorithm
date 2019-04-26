@@ -1,7 +1,7 @@
 print(" ::: NOM256 ::: ")
 print(" A Cryptographic Hash Algorithm")
 print(" - version: 1")
-print(" - Source: https://github.com/torresjrjr/torresjrjr.github.io")
+print(" - Source: https://github.com/torresjrjr/CryptoHashAlgorithm")
 print(" ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ")
 
 import time
