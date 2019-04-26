@@ -1,6 +1,6 @@
 print(" ::: NOM256 ::: ")
 print(" A Cryptographic Hash Algorithm")
-print(" - version: 1")
+print(" - version: 2")
 print(" - Source: https://github.com/torresjrjr/CryptoHashAlgorithm")
 print(" ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ")
 
