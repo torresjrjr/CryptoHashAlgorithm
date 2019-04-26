@@ -133,7 +133,7 @@ T2 = time.time()
 TIMETAKEN = T2-T1
 print("time taken:", TIMETAKEN)
 
-print("--- --- --- \n meal[:254] is:\n" + str(meal[:254]) + "\n...\n")
+print("--- --- --- \n meal preview:\n" + str(meal[:254]) + "\n...\n")
 print("length of meal:", len(meal))
 #print("quotient of 256:",len(meal)/256)
 #print("remainder of 256:",len(meal)%256)
