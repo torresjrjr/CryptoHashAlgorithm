@@ -11,11 +11,11 @@ Outputs a 256-bit 64 character hash, 'hash-graph', and metadata, given any file.
 ## How to use
 1. Set up or rename a copy of the file you want to hash as `meal.txt`. 
   - This can be any document file, or a simple text file with just a password.
-  - It is recommended you create a new directory (`/my-hashes` for example) with your `meal.txt` and `NOM256-v2.py`:
-2. Run NOM256-v2, in the same directory as your `meal.txt` file.
+  - It is recommended you create a new directory (`/my-hashes` for example) with your `meal.txt` and `NOM256.py`:
+2. Run NOM256, in the same directory as your `meal.txt` file.
   - You can run it in the command prompt: 
   ```
-  $ python NOM256-v2.py
+  $ python NOM256.py
   ```
   - Once running, you'll be shown the estimated time left to complete. The hash rate is approximately 0.0425 seconds per 1,000 bytes (or approximately 1,000 ASCII characters).
 
@@ -36,7 +36,7 @@ Outputs a 256-bit 64 character hash, 'hash-graph', and metadata, given any file.
 
 ```
 my-hashes
-|-- NOM256_v2.py
+|-- NOM256.py
 |-- README.md
 |-- meal.txt
 |-- outhash-history.txt
