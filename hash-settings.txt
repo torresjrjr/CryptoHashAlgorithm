@@ -1,0 +1,20 @@
+HASH SETTINGS
+-------------
+You can adjust the NOM256 settings here.
+NOM256 will read this file and do what you want.
+
+Make sure that only the options after the colons 
+are filled out, or it'll likely be misread by the 
+program and will just perform with normal settings.
+If settings are miunderstood, the program will 
+create a new `hash-settings.txt` file.
+
+----------
+Meal filepath: meal.txt
+Hash by: file
+Delimiter: 
+
+Write 'outhash.txt': true
+Write 'outhash-history.txt': true
+Write 'outhash.png': true
+----------
