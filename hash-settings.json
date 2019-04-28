@@ -1,6 +1,9 @@
 {
   "HASH_SETTINGS": {
-    "meal_filepath": "meal.txt",
+    "meal_filepath": [
+    	"meal.txt", 
+    	"*.meal"
+    ],
     "hash_by": "file",
     "delimiter": null,
     "write_outhash.txt": true,
