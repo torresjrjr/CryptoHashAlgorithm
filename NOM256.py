@@ -376,12 +376,12 @@ plt.title(HashcodeString, {'fontsize': 16}, fontfamily='consolas')
 ### Saving the hash-graph ###
 
 outhash_image_path = 'outhash.png'
-print("`{outhash_image_path}` will be saved once figure is closed")
+print(f"`{outhash_image_path}` will be saved once figure is closed")
 plt.show()
 
-print("Saving hash output graph `{outhash_image_path}`...")
+print(f"Saving hash output graph `{outhash_image_path}`...")
 fig.savefig(outhash_image_path, dpi=fig.dpi);
-print("`{outhash_image_path}` saved")
+print(f"`{outhash_image_path}` saved")
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Printing the hash ###
