@@ -346,7 +346,13 @@ HashcodeString = createHashcodeString(broth_list_int)
 
 x = broth_list_int
 
-fig = plt.figure(num=None, figsize=(10, 5), dpi=128, facecolor='w', edgecolor='b')
+fig = plt.figure(
+    num=None, 
+    figsize=(10, 5), 
+    dpi=128, 
+    facecolor='w', 
+    edgecolor='b',
+)
 ax = fig.add_subplot(1, 1, 1) # nrows, ncols, index
 
 hint_max = 0.3
@@ -378,7 +384,6 @@ plt.title(HashcodeString, {'fontsize': 16}, fontfamily='consolas')
 outhash_image_path = 'outhash.png'
 print(f"`{outhash_image_path}` will be saved once figure is closed")
 plt.show()
-
 print(f"Saving hash output graph `{outhash_image_path}`...")
 fig.savefig(outhash_image_path, dpi=fig.dpi);
 print(f"`{outhash_image_path}` saved")

@@ -1,0 +1,6 @@
+{// SETTING ------------------------------ OPTIONS --------------------- // 
+	"hash_by": "file", 					// "file", "line".
+	"write_outhash.txt": true, 			// true, false.
+	"write_outhash-history.txt": true, 	// true, false.
+	"write_outhash.png": true,  		// true, false.
+}
