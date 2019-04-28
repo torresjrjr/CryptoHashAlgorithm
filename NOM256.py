@@ -10,6 +10,7 @@ from datetime import timedelta
 from matplotlib import pyplot as plt
 import numpy as np
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for presentation and outputs ###
 
 RATE = 4.2535969274764765e-05 # seconds per character.
@@ -65,6 +66,7 @@ def approximateTime(meal):
     time = len(meal)**1 * RATE
     return time
     
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for preparing the data ###
 
 def prepareMealFromFile(filepath="meal.txt"):
@@ -132,7 +134,7 @@ def splitUpMeal(bigmeal, max_multiple=16):
     batch_list = [bigmeal[i:i+batch_size] for i in range(0, len(bigmeal), batch_size)]
     return batch_list
     
-
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Preparation of the data ###
 
 print("Preparing data to hash...")
@@ -160,6 +162,7 @@ print("length of meal:", len(meal))
 print("Total batches:",len(batch_list))
 #print("##################################")
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for creating a hash ###
 
 primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
@@ -259,6 +262,7 @@ def gulp(meal):
     #print("Hash finished.")
     return digest
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Creating a hash ###
 
 #print(meal)
@@ -295,6 +299,7 @@ TIMETAKEN = T2 - T1
 TIMETAKEN = TIME_2 - TIME_1
 print("time taken:", TIMETAKEN)
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Finalising a hash ###
 
 broth_list_int = []
@@ -310,6 +315,7 @@ broth_list_int[0] = tempInt
 thing = broth_list_int
 #print(type(thing), len(thing), len(thing)%64)
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Calculating stats for presenting a hash ###
 
 broth_list_int_sorted = sorted(broth_list_int)
@@ -333,6 +339,7 @@ average_value_adj = (average_value+0.5)
 sigmoid_value = sigmoid01(average_value_adj, 8, 16, 4)
 #print("sigmoid_value =", sigmoid_value)
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Presenting a hash ###
 
 HashcodeString = createHashcodeString(broth_list_int)
@@ -365,13 +372,18 @@ plt.plot(broth_list_int_sorted, 'r.-')
 
 plt.title(HashcodeString, {'fontsize': 16}, fontfamily='consolas')
 
-print("'outhash.png' will be saved once figure is closed")
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
+### Saving the hash-graph ###
+
+outhash_image_path = 'outhash.png'
+print("`{outhash_image_path}` will be saved once figure is closed")
 plt.show()
 
-print("Saving hash output graph 'hash.png'...")
-fig.savefig('outhash.png', dpi=fig.dpi);
-print("'hash.png' saved")
+print("Saving hash output graph `{outhash_image_path}`...")
+fig.savefig(outhash_image_path, dpi=fig.dpi);
+print("`{outhash_image_path}` saved")
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Printing the hash ###
 
 print("\nOutput hash:")
@@ -380,6 +392,7 @@ print(HashcodeString)
 print("\n4x4x4 hash grid.:")
 hashcodeGrid4x4x4(HashcodeString)
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Verifying hash output validity ###
 
 def verifyHashcode(digest):
@@ -422,6 +435,7 @@ print("\nVerifying hash validity...")
 print("Validity is", str(verifyHashcode(HashcodeString)))
 print("\n")
 
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Writing the hash output ###
 
 with open('outhash.txt', 'w') as f: 
@@ -436,7 +450,7 @@ with open('outhash-testing.txt', 'a') as f:
     f.write(HashcodeString + " {'meal_length':"+str(MEAL_LENGTH)+", 'time_taken':"+str(TIMETAKEN)+"}\n")
     print('\'outhash-testing.txt\' saved and ready.')
 
-
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### END ###
 DONE_TIMER = 5
 print(f'Done. Quitting in {DONE_TIMER} seconds')
