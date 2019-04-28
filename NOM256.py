@@ -9,6 +9,16 @@ import time
 from datetime import timedelta
 from matplotlib import pyplot as plt
 import numpy as np
+import json
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
+### Reading `settings.json` ###
+
+with open('settings.json', 'r') as f:
+    file = f.read()
+#print(file)
+settingsjson = json.loads(file)
+print("---- SETTINGS ----\n", settingsjson, "\n---- ---- ---- ----\n")
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for presentation and outputs ###
