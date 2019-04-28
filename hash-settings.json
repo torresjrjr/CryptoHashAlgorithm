@@ -1,0 +1,9 @@
+{
+  "HASH_SETTINGS": {
+    "hash_by": "file",
+    "delimiter": null,
+    "write_outhash.txt": true,
+    "write_outhash-history.txt": true,
+    "write_outhash.png": true
+  }
+}

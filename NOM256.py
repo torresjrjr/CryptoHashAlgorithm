@@ -14,11 +14,10 @@ import json
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Reading `settings.json` ###
 
-with open('settings.json', 'r') as f:
-    file = f.read()
-#print(file)
-settingsjson = json.loads(file)
-print("---- SETTINGS ----\n", settingsjson, "\n---- ---- ---- ----\n")
+with open('hash-settings.json', 'r') as f:
+    settingsdict = json.load(f)
+
+print("---- SETTINGS ----\n", settingsdict, "\n---- ---- ---- ----\n")
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for presentation and outputs ###
