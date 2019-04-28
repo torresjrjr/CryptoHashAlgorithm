@@ -8,6 +8,9 @@ Outputs a 256-bit 64 character hash, 'hash-graph', and metadata, given any file.
 *An example of a hash-graph, generated in 22.099 seconds from a 45 KB file of a character count of 452,096:*  
 ![An example of a hash-graph.](https://i.imgur.com/YSgvRD0.png)
 
+## How to install
+No installation process required! Just download the file and run.
+
 ## How to use
 1. Set up or rename a copy of the file you want to hash as `meal.txt`. 
   - This can be any document file, or a simple text file with just a password.
