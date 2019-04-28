@@ -71,7 +71,7 @@ def approximateTime(meal):
 
 def prepareMealFromFile(filepath="meal.txt"):
     """
-    Prepares a meal as a string, from any file.
+    Returns a meal as a string of binary ones and zeros, from any file.
     """
     print(f'Reading file: {filepath}')
 
@@ -107,7 +107,7 @@ def prepareMealFromFile(filepath="meal.txt"):
 
 def prepareMealFromString(string=""):
     """
-    Prepares a meal as a string, from a string.
+    Prepares a meal as a string, from a string input.
     """
     binstring = ""
     for char in string:
@@ -123,7 +123,9 @@ def prepareMealFromString(string=""):
 
 def splitUpMeal(bigmeal, max_multiple=16):
     """
-    Divides a meal into more manageble and less intensive meal sizes
+    Returns a list of equally long partitions of a very large meal string.
+    Helps with frequent feedback between hashing partitions, such as 
+    print statements of estimated time left.
     """
     batch_size = 256 * max_multiple # 4096
         
@@ -174,6 +176,9 @@ def createIts(meal):
 its = [prime%(len(meal)) for prime in primes]
 
 def nom(meal, i1):
+    """
+    Returns a pseudorandom character derived from an input string.
+    """
     # Iterators
     #numOfIts = len(meal)
     #its = [i1 for i1 in range(0,numOfIts)]
@@ -191,17 +196,30 @@ def nom(meal, i1):
     return newnom
     
 def nibble(meal):
+    """
+    Returns a string made of characters returned from the nom() function,
+    derived from the input meal string.
+    """
     broth = ""
     for i1 in range(-len(meal), 0):
         broth += nom(meal, i1)
     return broth
 
 def munch(broth, numOfMunches):
+    """
+    Repeats the nibble() function along a string, 
+    to return a pseudorandom string from an input meal string.
+    """
     for i1 in range(numOfMunches):
         broth = nibble(broth)
     return broth
 
 def chew(broth):
+    """
+    Returns a list of pseudorandom integers ranging from 0 to 15, 
+    of a quarter of the size of the (normally 256-long) 
+    intermediate meal string (the broth).
+    """
     broth = munch(broth, 4)
     
     #thing = broth
@@ -233,6 +251,11 @@ def chew(broth):
     return digest_list_four
     
 def gulp(meal):
+    """
+    Return a list of pseudorandom integers ranging from 0 to 15, 
+    compiled from multiple runs of the chew() function, after 
+    dividing a long meal string into equal parts (normally 256).
+    """
     #print("Proccessing...")
     broth = meal
     chunks = [broth[i:i+256] for i in range(0, len(broth), 256)]
@@ -328,6 +351,10 @@ average_value = sum(broth_list_int)/len(broth_list_int)
 #print("average_value =", average_value)
 
 def sigmoid01(x, xmid, L, k):
+    """
+    A mathematical sigmoid function, the 'Logistic function'.
+    A reference: < https://en.wikipedia.org/wiki/Logistic_function >.
+    """
     euler = 2.71828182845904523536028747135266249775724709369995
     sigma = L/(1 + euler**(-k*(x-xmid)))
     return sigma
@@ -401,6 +428,9 @@ hashcodeGrid4x4x4(HashcodeString)
 ### Verifying hash output validity ###
 
 def verifyHashcode(digest):
+    """
+    Verifies the hash as a NOM256 Hash.
+    """
     list_str = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
     list_num = [ 0 ,  1 ,  2 ,  3 ,  4 ,  5 ,  6 ,  7 ,  8 ,  9 , 10 , 11 , 12 , 13 , 14 , 15 ]
     
