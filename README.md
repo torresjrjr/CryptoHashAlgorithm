@@ -11,7 +11,7 @@ _An example of a hash-graph, generated in 22.099 seconds from a 45 KB file:_
 ![An example of a hash-graph.](https://i.imgur.com/YSgvRD0.png)
 
 
-## Use
+## Usage
 1. Set up or rename a copy of the file you want to hash as `meal.txt`. 
   - This can be any document file, or a simple text file with just a password.
   - It is recommended you create a new directory (`/my-hashes` for example) with your `meal.txt` and `NOM256.py`:
@@ -63,7 +63,3 @@ Python libraries:
 python -m pip install -U pip
 python -m pip install -U matplotlib
 ```
-
-
-## Credits
-Thanks to many.
