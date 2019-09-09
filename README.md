@@ -1,7 +1,7 @@
 #  ::: NOM256 ::: 
 A Cryptographic Hash Algorithm, in Python.  
 Outputs a 256-bit 64 character hash, 'hash-graph', and metadata, given a file.
-- Version: 2
+- Version: 2.0
 - Repository: [https://github.com/torresjrjr/CryptoHashAlgorithm](https://github.com/torresjrjr/CryptoHashAlgorithm)
 - Author: [@torresjrjr](https://t.me/torresjrjr)
 
