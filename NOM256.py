@@ -53,7 +53,8 @@ def createHashcodeString(digest):
     return hashcodestring
 
 
-def hashcodeGrid4x4x4(hashcodestring): """
+def hashcodeGrid4x4x4(hashcodestring):
+    """
     Prints a 4 x 4 x 4 grid of alphanumeric hexadecimal characters, 
     representing a 64 character hash string.
     """
