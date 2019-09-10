@@ -1,8 +1,15 @@
-print(" ::: NOM256 ::: ")
-print(" A Cryptographic Hash Algorithm")
-print(" - version: 2")
-print(" - Source: https://github.com/torresjrjr/CryptoHashAlgorithm")
-print(" ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ")
+#!usr/bin/env python
+
+"""
+ ::: NOM256 ::: 
+ A Cryptographic Hash Algorithm
+ - version: 2
+ - Source: https://github.com/torresjrjr/CryptoHashAlgorithm
+ ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+"""
+
+print(__doc__)
+
 
 import os
 import time
@@ -11,6 +18,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import json
 
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Reading `settings.json` ###
 
@@ -18,6 +26,7 @@ with open('hash-settings.json', 'r') as f:
     settingsdict = json.load(f)
 
 print("---- SETTINGS ----\n", settingsdict, "\n---- ---- ---- ----\n")
+
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for presentation and outputs ###
@@ -43,8 +52,8 @@ def createHashcodeString(digest):
     
     return hashcodestring
 
-def hashcodeGrid4x4x4(hashcodestring):
-    """
+
+def hashcodeGrid4x4x4(hashcodestring): """
     Prints a 4 x 4 x 4 grid of alphanumeric hexadecimal characters, 
     representing a 64 character hash string.
     """
@@ -66,6 +75,7 @@ def hashcodeGrid4x4x4(hashcodestring):
     print("+---- ---- ---- ----+")
     #print("- - - - - - - - - - -")
     
+
 def approximateTime(meal):
     """
     Returns an estimated time to compute a hash of a given meal string.
@@ -75,6 +85,7 @@ def approximateTime(meal):
     time = len(meal)**1 * RATE
     return time
     
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for preparing the data ###
 
@@ -114,6 +125,7 @@ def prepareMealFromFile(filepath="meal.txt"):
     
     return binstring
 
+
 def prepareMealFromString(string=""):
     """
     Prepares a meal as a string, from a string input.
@@ -130,6 +142,7 @@ def prepareMealFromString(string=""):
     
     return binstring
 
+
 def splitUpMeal(bigmeal, max_multiple=16):
     """
     Returns a list of equally long partitions of a very large meal string.
@@ -145,6 +158,7 @@ def splitUpMeal(bigmeal, max_multiple=16):
     batch_list = [bigmeal[i:i+batch_size] for i in range(0, len(bigmeal), batch_size)]
     return batch_list
     
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Preparation of the data ###
 
@@ -173,6 +187,7 @@ print("length of meal:", len(meal))
 print("Total batches:",len(batch_list))
 #print("##################################")
 
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Functions for creating a hash ###
 
@@ -183,6 +198,7 @@ def createIts(meal):
     return its
 
 its = [prime%(len(meal)) for prime in primes]
+
 
 def nom(meal, i1):
     """
@@ -204,6 +220,7 @@ def nom(meal, i1):
     newnom = str(newnom % 10)
     return newnom
     
+
 def nibble(meal):
     """
     Returns a string made of characters returned from the nom() function,
@@ -214,6 +231,7 @@ def nibble(meal):
         broth += nom(meal, i1)
     return broth
 
+
 def munch(broth, numOfMunches):
     """
     Repeats the nibble() function along a string, 
@@ -222,6 +240,7 @@ def munch(broth, numOfMunches):
     for i1 in range(numOfMunches):
         broth = nibble(broth)
     return broth
+
 
 def chew(broth):
     """
@@ -259,6 +278,7 @@ def chew(broth):
     
     return digest_list_four
     
+
 def gulp(meal):
     """
     Return a list of pseudorandom integers ranging from 0 to 15, 
@@ -293,6 +313,7 @@ def gulp(meal):
         i1 += 1
     #print("Hash finished.")
     return digest
+
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Creating a hash ###
@@ -331,6 +352,7 @@ TIMETAKEN = T2 - T1
 TIMETAKEN = TIME_2 - TIME_1
 print("time taken:", TIMETAKEN)
 
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Finalising a hash ###
 
@@ -346,6 +368,7 @@ broth_list_int[0] = tempInt
 #print("broth_list_int: \n", broth_list_int)
 thing = broth_list_int
 #print(type(thing), len(thing), len(thing)%64)
+
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Calculating stats for presenting a hash ###
@@ -374,6 +397,7 @@ average_value_adj = (average_value+0.5)
 
 sigmoid_value = sigmoid01(average_value_adj, 8, 16, 4)
 #print("sigmoid_value =", sigmoid_value)
+
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Presenting a hash ###
@@ -414,6 +438,7 @@ plt.plot(broth_list_int_sorted, 'r.-')
 
 plt.title(HashcodeString, {'fontsize': 16}, fontfamily='consolas')
 
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Saving the hash-graph ###
 
@@ -424,6 +449,7 @@ print(f"Saving hash output graph `{outhash_image_path}`...")
 fig.savefig(outhash_image_path, dpi=fig.dpi);
 print(f"`{outhash_image_path}` saved")
 
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Printing the hash ###
 
@@ -432,6 +458,7 @@ HashcodeString = createHashcodeString(broth_list_int)
 print(HashcodeString)
 print("\n4x4x4 hash grid.:")
 hashcodeGrid4x4x4(HashcodeString)
+
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Verifying hash output validity ###
@@ -479,6 +506,7 @@ print("\nVerifying hash validity...")
 print("Validity is", str(verifyHashcode(HashcodeString)))
 print("\n")
 
+
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### Writing the hash output ###
 
@@ -493,6 +521,7 @@ with open('outhash-history.txt', 'a') as f:
 with open('outhash-testing.txt', 'a') as f: 
     f.write(HashcodeString + " {'meal_length':"+str(MEAL_LENGTH)+", 'time_taken':"+str(TIMETAKEN)+"}\n")
     print('\'outhash-testing.txt\' saved and ready.')
+
 
 # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- #
 ### END ###
